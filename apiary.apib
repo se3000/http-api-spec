@@ -8,10 +8,9 @@ The HTTP API is currently accepting all methods, so GET will work just as well a
 
 # Group add [POST /add{?arg}{&r,p,t,n,w,H,s}]
 
-Add a file to IPFS.
+Add a file or directory to IPFS.
 
-Note that directories are added recursively, to form the ipfs
-MerkleDAG.
+Adds contents of <path> to ipfs. Use -r to add directories (recursively).
 
 #### curl
 
@@ -9563,6 +9562,8 @@ Removes the pinned object from local storage.
 # Group ping
 Send echo request packets to IPFS hosts.
 
+Send pings to a peer to verify connectivity and determine latency.
+
 ## ping [GET /ping{?arg}{&count}]
 A tool to test sending data to other nodes. It finds nodes
 via the routing system, sends pings, waits for pongs, and prints out round-
@@ -9791,7 +9792,8 @@ trip latency information.
 
 # Group refs
 
-Displays the link hashes an IPFS or IPNS object(s) contains, with the following format:
+Lists the hashes of all the links an IPFS or IPNS object(s) contains,
+with the following format:
 
     <link base58 hash>
 
